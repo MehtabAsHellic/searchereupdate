@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins:wght@200;400&display=swap');
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP&family=Poppins:wght@200;400&display=swap');
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Noto+Sans+JP&family=Poppins:wght@200;400&display=swap');
+    </style>
+    <title>SearcHere</title>
+    <style>
+      <style>form {
+        background: linear-gradient(to bottom, #fff, #f2f2f2);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      input[type="text"]:focus,
+      select:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+
+      button[type="submit"] {
+        width: 50%;
+        height: 50%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .image-container {
+        text-align: center;
+      }
+
+      body {
+        font-family: Anton, sans-serif;
+      }
+
+      .footer {
+        font-size: 0.8em;
+        text-align: center;
+        margin: 20px 0;
+        color: #777;
+      }
+
+      select {
+        border: 2px solid #000;
+        background-color: #eee;
+      }
+
+      .font {
+        font-family: 'Anton', sans-serif;
+      }
+
+      .fontz {
+        font-family: 'Fjalla One', sans-serif;
+      }
+
+      .searchimgg {
+        height: 260px;
+      }
+    </style>
+    <center>
+      <h1 class="font">S e a r c H e r e</h1>
+      <p class="fontz">
+        Yes, that's correct. A web application that allows users to search for a
+        query and select a respected search platform would typically have the features you described.
+        A drop-down menu or list of options that allows users to select the search platform they want to use
+        (e.g. Google, Amazon, Dribbble).
+      </p>
+      <div class="image-container">
+        <img class="searchimgg"
+          src="https://cdn.dribbble.com/users/535615/screenshots/17316993/media/c5710e17c69f09b1ce718eb7cff0a173.jpg?compress=1&resize=1000x750&vertical=top"
+          alt="searchere image" />
+      </div>
+
+      <br />
+      <form>
+        <label class="fontz">
+          SEARCH HERE:
+          <input type="text" id="query" autocomplete="off" autofocus required />
+        </label>
+        <br />
+        <label class="fontz">
+          SEARCH USING:
+          <select id="search-engine" required>
+            <option value="">Please select a search engine</option>
+            <optgroup label="Shopping sites">
+              <option value="amazon">Amazon</option>
+              <option value="flipkart">Flipkart</option>
+            </optgroup>
+            <optgroup label="Search engines">
+              <option value="google">Google</option>
+              <option value="bing">Microsoft Bing</option>
+              <option value="yahoo">Yahoo</option>
+            </optgroup>
+            <optgroup label="Social media">
+              <option value="dribbble">Dribbble</option>
+            </optgroup>
+            <optgroup label="Information">
+              <option value="quora">Quora</option>
+            </optgroup>
+          </select>
+
+        </label>
+        <br />
+        <button type="submit">Search</button>
+      </form>
+    </center>
+    <br><br><br><br><br><br>
+    <div class="footer">
+      <p>Created by Mehtab Khan</p>
+      <a href="https://www.linkedin.com/in/mehtabarkhan" target="_blank">LinkedIn</a>
+
+    </div>
+
+
+    <script>
+      // JavaScript code goes here
+      const form = document.querySelector("form");
+      const searchEngine = document.querySelector("#search-engine");
+      const query = document.querySelector("#query");
+
+      form.addEventListener("submit", (event) => {
+        // Prevent the form from actually submitting
+        event.preventDefault();
+
+        // Get the selected search engine
+        const selectedSearchEngine = searchEngine.value;
+
+        // Get the search query
+        const searchQuery = query.value;
+
+        // Construct the search URL
+        let searchURL;
+        if (selectedSearchEngine === "google") {
+          searchURL = `https://google.com/search?q=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "wikipedia") {
+          searchURL = `https://wikipedia.org/wiki/${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "youtube") {
+          searchURL = `https://youtube.com/results?search_query=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "google-earth") {
+          searchURL = `https://earth.google.com/web/search/${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "amazon") {
+          searchURL = `https://www.amazon.com/s?field-keywords=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "yahoo") {
+          searchURL = `https://search.yahoo.com/search?q=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "flipkart") {
+          searchURL = `https://www.flipkart.com/search?q=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "quora") {
+          searchURL = `https://www.quora.com/search?q=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "dribbble") {
+          searchURL = `https://dribbble.com/search?q=${encodeURIComponent(
+            searchQuery
+          )}`;
+        } else if (selectedSearchEngine === "bing") {
+          searchURL = `https://www.bing.com/search?q=${encodeURIComponent(
+            searchQuery
+          )}`;
+        }
+
+        // Redirect the user to the search URL
+        window.location.href = searchURL;
+      });
+    </script>
+</body>
+
+</html>
